@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-let corsOptions = {
-    origin: ["https://bright-brioche-e5c2e1.netlify.app"],
-};
+const corsOptions ={
+    origin:'http://localhost:3001/', 
+    credentials:true,           
+    optionSuccessStatus:200
+}
 app.use(cors(corsOptions));
 app.use(express.json());
 const createuserController = require('./Controllers/createUserController');
