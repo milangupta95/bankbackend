@@ -15,7 +15,7 @@ const transferAmmount = require('./Controllers/transferAmmountController');
 app.post("/signup",createuserController);
 app.get("/viewAllCustomer",viewAllCustomer);
 app.get("/viewOneCustomer/:id",viewOneCustomer);
-app.post("/transferAmmount",transferAmmount);
+app.patch("/transferAmmount",transferAmmount);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT,function() {
