@@ -1,5 +1,4 @@
 const userModel = require('../Models/userModel');
-const mongoose = require('mongoose');
 
 async function viewAllCustomer(req,res) {
     try{

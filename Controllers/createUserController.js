@@ -1,4 +1,3 @@
-const express = require('express');
 const userModel = require('../Models/userModel');
 async function createUser(req,res) {
     try {

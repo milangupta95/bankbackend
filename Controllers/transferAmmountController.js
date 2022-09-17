@@ -1,6 +1,4 @@
 const userModel = require('../Models/userModel');
-const mongoose = require('mongoose');
-
 async function transferAmmount(req,res) {
     try {
         let transferData = req.body;
