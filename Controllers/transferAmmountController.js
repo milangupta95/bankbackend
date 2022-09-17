@@ -1,4 +1,5 @@
 const userModel = require('../Models/userModel');
+const transferModel = require('../Models/transferModel');
 async function transferAmmount(req,res) {
     try {
         let transferData = req.body;
@@ -21,11 +22,23 @@ async function transferAmmount(req,res) {
                 reciever.Balance = newReciverBalance;
                 await sender.save();
                 await reciever.save();
-                res.status(200).json({
-                    message: "Updated SuccessFully",
-                    sender: sender,
-                    reciever: reciever
-                })
+                const transferData = {
+                    from: sender.userName,
+                    to: reciever.userName,
+                    ammount: ammountToBeTransfer
+                }
+                let transfer = await transferModel.create(transferData);
+                if(transfer){
+                    res.status(200).json({
+                        message: "Updated SuccessFully",
+                        sender: sender,
+                        reciever: reciever
+                    })
+                } else {
+                    res.status(500).json({
+                        message: "Not Transeferd"
+                    })
+                }
             }
         } else {
             res.status(400).json({
